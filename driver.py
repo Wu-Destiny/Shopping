@@ -22,10 +22,11 @@ class Mongo(object):
     def update(self,collection,post):
         pass
 
-    def findone(self,collection,query):
-        pass
+    def findall(self,collection,query=""):
+        if query=="":
+            return self.db[collection].find()
 
-    def findall(self,collection,query):
+    def findone(self,collection,query):
         pass
 
     def display(self,collection):
@@ -33,10 +34,14 @@ class Mongo(object):
           for f in self.db[collection].find():
             i = i + 1
             print (i,":",f)
+          print ("--------",i,"--------")
 
     def delete(self,collection,query):
         pass
-
-m = Mongo()
-m.connect()
-m.display("urls")
+if __name__ == '__main__':
+    m = Mongo()
+    m.connect()
+    # m.display("urls_ymx")
+    # m.display("urls")
+    # m.display("urls_jd")
+    m.display("pro_ymx")
